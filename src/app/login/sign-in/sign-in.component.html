@@ -1,0 +1,55 @@
+<ion-content>
+    <div class="contenido">
+        <ion-card color="light">
+            <ion-card-content>
+                <div class="formulario-content">
+                    <div class="formulario" style="vertical-align: middle !important;">
+                        <h1 class="animated fadeIn slower">Inicia Sesión</h1>
+                        <br>
+                        <form #formulario="ngForm" (ngSubmit)="submit(formulario)" autocomplete="on">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Correo</mat-label>
+                                <input class="form-control" type="email" matInput placeholder="Correo" color="primary" [(ngModel)]="usuario.correo" name="correo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required #correo="ngModel">
+                                <mat-hint *ngIf="correo.invalid && correo.touched">El correo es inválido</mat-hint>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" color="primary">
+                                <mat-label>Contraseña</mat-label>
+                                <input matInput placeholder="Password" class="form-control" [type]="escondidoPass ? 'password' : 'text'" [(ngModel)]="usuario.password" name="contrasena" required #contrasena="ngModel" minlength="6">
+
+                                <button mat-icon-button matSuffix [ngStyle]="{'background':'white'}" (click)="escondidoPass = !escondidoPass" [attr.aria-pressed]="escondidoPass" type="button">
+                              <mat-icon [ngStyle]="{'background':'white'}">{{escondidoPass ? 'visibility_off' : 'visibility'}}</mat-icon>
+                          </button>
+
+                                <mat-hint *ngIf="contrasena.invalid && contrasena.touched">
+                                    La contraseña debe tener por lo menos 6 caracteres
+                                </mat-hint>
+                            </mat-form-field>
+
+                            <div>
+                                <a color="primary">¿Has olvidado tu contraseña?</a>
+                            </div>
+
+                            <ion-button color="tertiary" fill="solid" block [disabled]="!formulario.valid" type="submit">
+                                <span>Comenzar</span>
+                            </ion-button>
+                        </form>
+                        <br>
+                        <br>
+                        <hr>
+                        <ion-button color="primary" fill="outline" block>
+                            <ion-icon name="logo-google" class="ion-margin-end"></ion-icon>
+                            <span>Inicia Sesión con Google</span>
+                        </ion-button>
+                        <hr>
+                        <br>
+                        <div class="centrado">
+                            <a color="primary" href="#" [routerLink]="['/registrar']">¿Aún no tienes cuenta? Registrate aquí</a>
+                        </div>
+
+                    </div>
+                </div>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>

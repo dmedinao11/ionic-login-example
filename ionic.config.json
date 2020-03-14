@@ -1,5 +1,7 @@
 {
   "name": "AgendaApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

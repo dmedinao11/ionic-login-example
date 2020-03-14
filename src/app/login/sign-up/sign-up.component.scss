@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
+ion-content {
+    --ion-background-color: linear-gradient(to right top, #0b9641, #00895f, #007a71, #006a75, #00596c);
+}
+
+hr {
+    border-top: 2px solid #0b9641;
+    border-radius: 1px;
+}
+
+.contenido {
+    height: 100%;
+    padding: 3%;
+}
+
+ion-card {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: table;
+}
+
+h1 {
+    font-size: xx-large;
+    background: -webkit-linear-gradient(#0b9641, #00596c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+ion-card-content {
+    height: 80%;
+    display: table-cell;
+}
+
+.formulario-content {
+    height: 100%;
+    display: table;
+}
+
+.formulario {
+    display: table-cell;
+    vertical-align: middle;
+    height: auto;
+    align-content: center;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+// mat-icon-stepper selected color change 
+::ng-deep .mat-step-header .mat-step-icon-selected,
+.mat-step-header .mat-step-icon-state-done,
+.mat-step-header .mat-step-icon-state-edit {
+    background-color: red!important;
+}
+
+//input outline color
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #0b9641 !important;
+    // opacity: 1!important;
+}
+
+//mat-input focused color
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #0a8439 !important;
+}
+
+// mat-input error outline color
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+    color: #f04141 !important;
+}
+
+// mat-input carent color
+::ng-deep .mat-input-element {
+    caret-color: #0b9641 !important;
+}
+
+// mat-input error carent color
+::ng-deep .mat-form-field-invalid .mat-input-element,
+.mat-warn .mat-input-element {
+    caret-color: #f04141 !important;
+}
+
+// mat-label normal state style
+::ng-deep .mat-form-field-label {
+    color: black !important;
+    // color: $mainColor!important;
+}
+
+// mat-label focused style
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: #0b9641 !important;
+}
+
+// mat-label error style
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: #f04141 !important;
+}
+
+ion-button {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 100%;
+    align-content: center;
+}
+
+.centrado {
+    text-align: center;
+}
+
+mat-hint {
+    color: red !important;
+    opacity: 60%;
+}

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "agendaapp-7a637": {
+      "hosting": {
+        "app": [
+          "agendaapp-7a637"
+        ]
+      }
+    }
+  }
+}
