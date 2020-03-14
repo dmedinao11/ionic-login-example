@@ -4,9 +4,6 @@ import { IonicModule } from '@ionic/angular';
 import { LoginPageRoutingModule } from './login-routing.module';
 import { FormsModule } from '@angular/forms';
 
-//Providers
-import { NativePageTransitions} from '@ionic-native/native-page-transitions/ngx';
-
 //Components
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -31,10 +28,6 @@ import { LoginPage } from './login.page';
     SignUpComponent,
     NotFoundComponent,
     LoginPage
-  ],
-
-  providers: [
-    NativePageTransitions
   ],
 
   exports: [

@@ -34,7 +34,7 @@ export class AuthFireService {
   
   //Login
   loginConGoogle() {
-    this.auth.signInWithRedirect(new auth.GoogleAuthProvider())
+    this.auth.signInWithPopup(new auth.GoogleAuthProvider())
     .then(
       data => {
         this.estaAutenticado = true;
