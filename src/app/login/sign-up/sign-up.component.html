@@ -1,10 +1,10 @@
-<ion-content>
+<ion-content class="animated fadeIn faster">
     <div class="contenido">
-        <ion-card color="light">
+        <ion-card color="light" class="animated bounceInLeft">
             <ion-card-content>
                 <div class="formulario-content">
                     <div class="formulario" style="vertical-align: middle !important;">
-                        <h1 class="animated fadeIn slower">Regístrate</h1>
+                        <h1>Regístrate</h1>
                         <br>
                         <form #formulario="ngForm" (ngSubmit)="submit(formulario)" autocomplete="on">
 
@@ -56,7 +56,7 @@
                         <hr>
                         <br>
                         <div class="centrado">
-                            <a color="primary" href="#" [routerLink]="['/login']">¿Ya tienes cuenta? Ingresa aquí</a>
+                            <a color="primary" href="#" [routerLink]="['../signIn']" routerDirection="foward">¿Ya tienes cuenta? Ingresa aquí</a>
                         </div>
 
                     </div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthFireService } from '../core/services/auth-fire.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,13 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private authService: AuthFireService) {}
+
+  cerrarSesion(){
+    console.log(this.authService.estaAutenticado + " hola");
+    this.authService.logout();
+    console.log(this.authService.estaAutenticado);
+    
+  }
 
 }

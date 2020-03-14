@@ -12,10 +12,7 @@ import { Observable, PartialObserver } from 'rxjs';
 export class AuthFireService {
 
   public estaAutenticado = false;
-  private url = 'https://identitytoolkit.googleapis.com/v1/accounts:';
-  private apiKey = 'AIzaSyDbVkRpr17cRdQv-iP7zq9BBEqYa68QvfE';
   public usuario: UsuarioModel;
-  private userToken: string;
 
 
   constructor(private auth: AngularFireAuth, private router: Router) {
@@ -35,7 +32,7 @@ export class AuthFireService {
     )
   }
   
-  
+  //Login
   loginConGoogle() {
     this.auth.signInWithRedirect(new auth.GoogleAuthProvider())
     .then(
@@ -47,30 +44,11 @@ export class AuthFireService {
     .catch(
       error => {
         this.estaAutenticado = false;
-        console.warn(error);
-        
+        console.warn(error);   
       }
     );
   }
-
-  registroConCorreo(usuario: UsuarioModel){
-    return this.auth.createUserWithEmailAndPassword(usuario.correo, usuario.password)
-    .then(
-      data => {
-        this.estaAutenticado = true;
-        console.log(data);
-      }
-    )
-    .catch(
-      error => {
-        this.estaAutenticado = false;
-        console.warn(error);
-        
-      }
-    );
-                                                                                   
-  }
-
+  
   loginConCorreo(usuario: UsuarioModel){
     this.auth.signInWithEmailAndPassword(usuario.correo, usuario.password)
     .then(
@@ -90,16 +68,32 @@ export class AuthFireService {
   }
 
 
+  //Registro
+  registroConCorreo(usuario: UsuarioModel){
+    return this.auth.createUserWithEmailAndPassword(usuario.correo, usuario.password)
+    .then(
+      data => {
+        this.estaAutenticado = true;
+        console.log(data);
+      }
+    )
+    .catch(
+      error => {
+        this.estaAutenticado = false;
+        console.warn(error);
+        
+      }
+    );
+                                                                                   
+  }
 
+
+  //Cerrar sesion
   logout() {
     this.usuario = {};
     this.estaAutenticado = false;
     this.auth.signOut();
-    this.router.navigateByUrl('/registrar');
-  }
-
-  public comprobarAuth(): Observable<firebase.User>{
-    return this.auth.authState;
+    this.router.navigateByUrl('login');
   }
 }
 

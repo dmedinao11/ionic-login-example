@@ -3,6 +3,8 @@ import { UsuarioModel } from 'src/app/core/models/usuario-model';
 import { AuthFireService } from 'src/app/core/services/auth-fire.service';
 import { NgForm } from '@angular/forms';
 
+
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -16,7 +18,9 @@ export class SignUpComponent implements OnInit {
   escondidoPass = true;
   escondidoConf = true;
 
-  constructor(public authService: AuthFireService) { }
+  constructor(
+    public authService: AuthFireService,
+    ) { }
 
   ngOnInit() {
     this.usuario = new UsuarioModel();
@@ -34,5 +38,4 @@ export class SignUpComponent implements OnInit {
   iniciarConGoogle(){
     this.authService.loginConGoogle();
   }
-
 }

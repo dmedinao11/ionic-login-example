@@ -15,7 +15,7 @@ const routes: Routes = [
       {path: 'signUp', component: SignUpComponent},
       {path: '404', component: NotFoundComponent},
       {path:'', pathMatch:'full', redirectTo:'signUp'},
-      {path:'**', pathMatch:'full', redirectTo:'404'},
+      //{path:'**', pathMatch:'full', redirectTo:'404'},
     ]
   }
 ];
