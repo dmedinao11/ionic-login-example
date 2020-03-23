@@ -1,14 +1,16 @@
-<ion-content class="animated fadeIn faster">
+<ion-content class="loading" *ngIf="cargando || this.authService.cargando">
+    <app-loading></app-loading>
+</ion-content>
+
+<ion-content *ngIf="!cargando && !this.authService.cargando">
     <div class="contenido">
         <ion-card color="light" class="animated bounceInLeft">
             <ion-card-content>
                 <div class="formulario-content">
-                    <div class="formulario" style="vertical-align: middle !important;">
+                    <div class="formulario">
                         <h1>Regístrate</h1>
                         <br>
                         <form #formulario="ngForm" (ngSubmit)="submit(formulario)" autocomplete="on">
-
-
                             <mat-form-field appearance="outline">
                                 <mat-label>Correo</mat-label>
                                 <input class="form-control" type="email" matInput placeholder="Correo" color="primary" [(ngModel)]="usuario.correo" name="correo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required #correo="ngModel">

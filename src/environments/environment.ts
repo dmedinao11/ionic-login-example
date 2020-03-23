@@ -12,7 +12,7 @@ export const firebaseConfig = {
   authDomain: "agendaapp-7a637.firebaseapp.com",
   databaseURL: "https://agendaapp-7a637.firebaseio.com",
   projectId: "agendaapp-7a637",
-  storageBucket: "agendaapp-7a637.appspot.com",
+  storageBucket: "gs://agendaapp-7a637.appspot.com/",
   messagingSenderId: "631320166978",
   appId: "1:631320166978:android:39f25f264fe3830baa63db"
 };

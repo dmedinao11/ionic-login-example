@@ -3,6 +3,10 @@ ion-content {
     --ion-background-color: linear-gradient(to right top, #0b9641, #00895f, #007a71, #006a75, #00596c);
 }
 
+ion-content.loading {
+    --ion-background-color: #ffffff;
+}
+
 hr {
     border-top: 2px solid #0b9641;
     border-radius: 1px;
@@ -22,7 +26,8 @@ ion-card {
 
 h1 {
     font-size: xx-large;
-    background: -webkit-linear-gradient(#0b9641, #00596c);
+    //background: -webkit-linear-gradient(#0b9641, #00596c);
+    background: var(--ion-color-tertiary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: 'Poppins', sans-serif;

@@ -28,7 +28,6 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
-@charset "UTF-8";
 
 /*!
  * animate.css -https://daneden.github.io/animate.css/
@@ -37,6 +36,12 @@
  *
  * Copyright (c) 2019 Daniel Eden
  */
+
+ion-loading.loader {
+    .loading-wrapper {
+        background: var(--ion-color-primary);
+    }
+}
 
 @-webkit-keyframes bounce {
     from,

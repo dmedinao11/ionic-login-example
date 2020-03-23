@@ -1,3 +1,5 @@
+//Core
+import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -10,10 +12,12 @@ import { LoginPageModule } from './login/login.module';
 import { AngularFireModule } from '@angular/fire';
 import { firebaseConfig } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 //Components
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
+
 
 
 //Angular Material
@@ -27,6 +31,7 @@ import { HomePageModule } from './home/home.module';
 @NgModule({
   declarations: [
     AppComponent,
+    
   ],
   entryComponents: [],
   imports: [
@@ -34,8 +39,12 @@ import { HomePageModule } from './home/home.module';
     IonicModule.forRoot(), 
     AppRoutingModule, 
     BrowserAnimationsModule,
+
+    //Firebase
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
+    AngularFireStorageModule,
+   
     MaterialModule,
     LoginPageModule,
     HomePageModule
@@ -43,7 +52,8 @@ import { HomePageModule } from './home/home.module';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    GooglePlus
   ],
   bootstrap: [AppComponent],
   exports: [MaterialModule]

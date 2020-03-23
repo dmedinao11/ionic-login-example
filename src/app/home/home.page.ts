@@ -8,13 +8,13 @@ import { AuthFireService } from '../core/services/auth-fire.service';
 })
 export class HomePage {
 
-  constructor(private authService: AuthFireService) {}
+  constructor(public authService: AuthFireService) {
+    console.log();
+    
+  }
 
   cerrarSesion(){
-    console.log(this.authService.estaAutenticado + " hola");
-    this.authService.logout();
-    console.log(this.authService.estaAutenticado);
-    
+    this.authService.logout();    
   }
 
 }

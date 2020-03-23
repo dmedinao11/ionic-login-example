@@ -1,7 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioModel } from 'src/app/core/models/usuario-model';
-import { AuthFireService } from 'src/app/core/services/auth-fire.service';
 import { NgForm } from '@angular/forms';
+import { LoadingController, ModalController } from '@ionic/angular';
+
+//Models
+import { UsuarioModel } from 'src/app/core/models/usuario-model';
+
+//Servicio
+import { AuthFireService } from 'src/app/core/services/auth-fire.service';
+
+//Modal
+import { SignUpCompleteInformationComponent } from '../modals/sign-up-complete-information/sign-up-complete-information.component';
 
 
 
@@ -12,30 +20,75 @@ import { NgForm } from '@angular/forms';
 })
 export class SignUpComponent implements OnInit {
 
-  public usuario: UsuarioModel = {password: '', correo: ''};
+  public usuario: UsuarioModel = { password: '', correo: '' };
   public confirmPass: string = '';
   passNoCoincide = false;
   escondidoPass = true;
   escondidoConf = true;
 
+  cargando: boolean;
+
   constructor(
     public authService: AuthFireService,
-    ) { }
-
-  ngOnInit() {
-    this.usuario = new UsuarioModel();
+    public loadingController: LoadingController,
+  ) {
   }
 
-  submit(formulario: NgForm){    
+  ngOnInit() {
+    this.usuario = new UsuarioModel('', '');
+    this.cargando = true;
+    this.authService.observarAuthEstado().subscribe(
+      () => {
+        this.cargando = false;
+      }
+    );
+  }
+
+  //Login con correo
+  async submit(formulario: NgForm) {
     if (formulario.value.contrasena !== formulario.value.contrasenaConfirm) {
       this.passNoCoincide = true;
-    }else{
+    } else {
       this.passNoCoincide = false;
-      this.authService.registroConCorreo(this.usuario);
+
+      const loading = await this.loadingController.create({
+        message: 'Espere por favor',
+        mode: "md",
+        spinner: "crescent"
+      }); 
+
+      loading.present();   
+      await this.authService.registroConCorreo(this.usuario);
+      loading.dismiss();
+         
     }
   }
 
-  iniciarConGoogle(){
-    this.authService.loginConGoogle();
+
+    
+
+  //Login con google
+  async iniciarConGoogle() {
+    const resultado = this.authService.loginConGoogle();
+
+    const loading = await this.loadingController.create({
+      message: 'Espere por favor',
+      mode: "md",
+      spinner: "crescent"
+    });    
+    
+    resultado
+      .then(
+        (data) => {
+          loading.dismiss();
+        })
+      .catch(
+        (error) => {
+          loading.dismiss();
+        }
+      );
+
+      loading.present();
   }
+  
 }

@@ -1,0 +1,40 @@
+<ion-content *ngIf="cargando">
+    <app-loading></app-loading>
+</ion-content>
+
+<ion-content *ngIf="!cargando">
+    <div class="formulario-content">
+        <div class="formulario">
+            <h1>Cuentanos más de ti...</h1>
+            <br>
+            <form #formulario="ngForm" autocomplete="on">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input class="form-control" type="text" matInput placeholder="Nombre" color="primary" [(ngModel)]="usuario.nombre" name="nombre" required #nombre="ngModel" minlength="5">
+                    <mat-hint *ngIf="nombre.invalid && nombre.touched">
+                        Tu nombre debe tener 5 letras (no se permiten numeros ni otros caracteres)
+                    </mat-hint>
+                </mat-form-field>
+            </form>
+        </div>
+
+        <fieldset>
+            <legend>Selecciona tu avatar</legend>
+
+            <ion-grid>
+                <ion-row *ngFor="let row of IMAGENES_AVATARES">
+                    <ion-col *ngFor="let item of row">
+                        <input type="checkbox" [id]="item.checkBoxId" (change)="change(item)" [(ngModel)]="item.checked" />
+                        <label [for]="item.checkBoxId">
+                            <img [src]="item.imgURL"/>
+                        </label>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </fieldset>
+
+        <ion-button fill="solid" expand="block" color="tertiary" type="submit" [disabled]="!formulario.valid || !algunItemSeleccionado" (click)="submit()">
+            Siguiente
+        </ion-button>
+    </div>
+</ion-content>

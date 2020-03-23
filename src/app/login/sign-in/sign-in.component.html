@@ -1,6 +1,10 @@
-<ion-content class="animated fadeIn faster">
+<ion-content class="loading" *ngIf="cargando">
+    <app-loading></app-loading>
+</ion-content>
+
+<ion-content *ngIf="!cargando">
     <div class="contenido">
-        <ion-card color="light" class="animated bounceInRight">
+        <ion-card color="light" class="animated bounceInLeft">
             <ion-card-content>
                 <div class="formulario-content ">
                     <div class="formulario" style="vertical-align: middle !important;">
@@ -24,6 +28,7 @@
                                 <mat-hint *ngIf="contrasena.invalid && contrasena.touched">
                                     La contraseña debe tener por lo menos 6 caracteres
                                 </mat-hint>
+
                             </mat-form-field>
 
                             <div>
@@ -37,7 +42,7 @@
                         <br>
                         <br>
                         <hr>
-                        <ion-button color="primary" fill="outline" block>
+                        <ion-button color="primary" fill="outline" block (click)="iniciarConGoogle()">
                             <ion-icon name="logo-google" class="ion-margin-end"></ion-icon>
                             <span>Inicia Sesión con Google</span>
                         </ion-button>

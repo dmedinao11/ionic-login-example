@@ -5,6 +5,7 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
 //Guards
 import { LoginGuard } from './core/guards/login.guard';
 import { HomeGuard } from './core/guards/home.guard';
+import { LoadingComponent } from './shared/loading/loading.component';
 
 const routes: Routes = [
   
@@ -24,19 +25,24 @@ const routes: Routes = [
       path: '404',
       component: NotFoundComponent
     },
+
+    {
+      path: 'load',
+      component: LoadingComponent
+    },
     
     { 
     path: '', 
-    redirectTo: 'home',  
+    redirectTo: 'login',  
     pathMatch: 'full' 
     },
 
     
-/*     {
+    {
     path:'**',
     pathMatch: 'full',
     redirectTo: '404'
-  }, */
+  },
 ];
 
 @NgModule({
