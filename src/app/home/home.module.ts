@@ -5,18 +5,23 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
+import { MaterialModule } from '../core/modules/material/material.module';
+
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    MaterialModule,
     RouterModule.forChild([
       {
         path: '',
         component: HomePage
       }
-    ])
+    ]),
+    
   ],
   declarations: [HomePage],
 

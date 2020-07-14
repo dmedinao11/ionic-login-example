@@ -7,6 +7,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { LoginPageModule } from './login/login.module';
+import { HomePageModule } from './home/home.module';
 
 //Firebase
 import { AngularFireModule } from '@angular/fire';
@@ -23,7 +24,6 @@ import { AppComponent } from './app.component';
 //Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "../app/core/modules/material/material.module";
-import { HomePageModule } from './home/home.module';
 
 
 
